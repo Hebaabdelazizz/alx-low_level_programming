@@ -4,7 +4,11 @@
  * main - check the code for ALX School students
  *
  * Return: Always 0 (Success)
+<<<<<<< HEAD
 */
+=======
+ */
+>>>>>>> 3e35452 (4-main.c)
 
 int main(void)
 {
