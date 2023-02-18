@@ -6,10 +6,6 @@
  * Return: Always 0 (Success)
 <<<<<<< HEAD
 */
-=======
- */
->>>>>>> 3e35452 (4-main.c)
-
 int main(void)
 {
 	int r;
