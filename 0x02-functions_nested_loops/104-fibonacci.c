@@ -1,60 +1,51 @@
 #include <stdio.h>
 
 /**
- * main - finds and prints the first 98 Fibonacci numbers,
- * starting with 1 and 2
- * followed by a new line
- * Return: ALways 0 (Success)
+ * main - Entry point
+ * Desc:  rogram that finds and prints the first 98
+ * Fibonacci numbers, starting with 1 and 2, followed
+ * by a new line.
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
-	unsigned long int i, j, k, j1, j2, k1, k2;
+	unsigned long prev, next, ans;
+	unsigned long prev_half1, prev_half2, next_half1, next_half2;
+	unsigned long half1, half2;
+	int i;
 
-	j = 1;
-	k = 2;
-
-	printf("%lu", j);
-
-	for (i = 1; i < 91; i++)
+	i = 1;
+	prev = 1;
+	next = 2;
+	printf("%lu, %lu, ", prev, next);
+	while (i <= 90)
 	{
-		printf(", %lu", k);
-		k = k + j;
-		j = k - j;
+		ans = prev + next;
+		prev = next;
+		next = ans;
+		printf("%lu, ", ans);
+		i++;
 	}
-
-	j1 = j / 1000000000;
-	j2 = j % 1000000000;
-	k1 = k / 1000000000;
-	k2 = k % 1000000000;
-
-	for (i = 92; i < 99; ++i)
+	prev_half1 = prev / 10000000000, next_half1 = next / 10000000000;
+	prev_half2 = prev % 10000000000, next_half2 = next % 10000000000;
+	for (i = 91; i < 97; i++)
 	{
-		printf(", %lu", k1 + (k2 / 1000000000));
-		printf("%lu", k2 % 1000000000);
-		k1 = k1 + j1;
-		j1 = k1 - j1;
-		k2 = k2 + j2;
-		j2 = k2 - j2;
-	}
-
-	printf("\n");
-
-	return (0);
-}
-		printf("%lu", f1);
-
-		sum = (f1 + f2) % mx;
-		sumo = f1o + f2o + (f1 + f2) / mx;
-		f1 = f2;
-		f1o = f2o;
-		f2 = sum;
-		f2o = sumo;
-
-		if (count != 98)
+		half1 = prev_half1 + next_half1;
+		half2 = prev_half2 + next_half2;
+		if (half2 > 9999999999)
+		{
+			half1 += 1;
+			half2 %= 10000000000;
+		}
+		printf("%lu%lu", half1, half2);
+		if (i != 96)
 			printf(", ");
-		else
-			printf("\n");
+		prev_half1 = next_half1;
+		prev_half2 = next_half2;
+		next_half1 = half1;
+		next_half2 = half2;
 	}
-
+	printf("\n");
 	return (0);
 }
