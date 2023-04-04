@@ -33,6 +33,5 @@ i++;
 current = temp->next;
 temp->next = current->next;
 free(current);
-
 return (1);
 }
